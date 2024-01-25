@@ -10,7 +10,8 @@ const valid = (req, res, next) => {
 
     const { body, method } = req;
 
-    for (let value in body) {
+    for (let value in regexs) {
+        console.log(body[value])
         if (!body[value] && method !== 'PUT') {
             return res.status(400).json({ msg: `Es requerido el campo ${value}` });
         }
